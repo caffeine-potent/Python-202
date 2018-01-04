@@ -14,12 +14,12 @@ TF_VERSION := 0.8.0-py3-none-any
 TF_CLI := https://storage.googleapis.com/tensorflow/$(OS)/tensorflow-$(TF_VERSION).whl
 
 .PHONY: all
-all: jupyter tensorboard
+all: test jupyter tensorboard
 
-tensorflow/:
+$(VIRTUALENV):
   @$(VENV) -p python3 --system-site-packages ./$@
   
-$(VIRTUALENV)/bin/pip: upgrade $(VIRTUALENV)  
+$(VIRTUALENV)/bin/pip: $(VIRTUALENV) upgrade
 $(VIRTUALENV)/bin/tensorboard: requirements.txt
 $(VIRTUALENV)/bin/jupyter: requirements.txt
 
@@ -37,5 +37,10 @@ jupyter: $(VIRTUALENV)/bin/jupyter
 upgrade: $(VIRTUALENV)/bin/
 	$< install --upgrade pip
 
+install: $(VIRTUALENV)/bin/pip requirements.txt
+
+test:
+	pylint .
+	nosetests tests
 clean:
 	rm -rf $(VIRTUALENV)
