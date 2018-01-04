@@ -1,0 +1,16 @@
+tensorflow
+scipy
+numpy
+pandas
+mongo
+csv
+nose
+influxdb
+mongodb
+matplotlib
+scikit-learn
+pytest
+seaborn
+tensorflow
+scrapy
+sympy
