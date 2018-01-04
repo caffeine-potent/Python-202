@@ -2,6 +2,8 @@
 Rename this file to match the correct Feature Test and update to 
 match _your_ class that's imported below.
 
+http://blog.jameskyle.org/2010/10/nose-unit-testing-quick-start/
+
 """
 
 from Python-202 import ch0
