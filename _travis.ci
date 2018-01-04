@@ -1,0 +1,24 @@
+---
+sudo: required
+dist: trusty
+
+language: python
+python:
+  - "3.4"
+
+notifications:
+  email:
+    on_success: change # only if status change from fail to success
+    on_failure: always # if there is a fail
+    recipients:
+      - dwightaspencer@gmail.com
+
+cache:
+  directories:
+    - tensorflow
+
+before_script:
+  - make install
+
+script:
+  - make test
