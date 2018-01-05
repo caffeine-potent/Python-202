@@ -11,6 +11,5 @@ matplotlib
 scikit-learn
 pytest
 seaborn
-tensorflow
 scrapy
 sympy
